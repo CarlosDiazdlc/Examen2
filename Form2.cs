@@ -46,15 +46,17 @@ namespace Examen2
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(chkMonedaSelec.SelectedItem == null)
+            if(chkMonedaSelec.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Seleccione una moneda");
                 return;
             }
+            monedaRequerida.Clear();
             foreach (var item in chkMonedaSelec.CheckedItems)
             {
                 monedaRequerida.Add(item.ToString());
             }
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }
